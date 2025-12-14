@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PassLock System</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>PassLock System</h1>
+    </div>
+    
+    <div class="code-display">
+      <div>Enter Code</div>
+      <div class="code-digits">
+        <div class="digit empty" id="digit1">_</div>
+        <div class="digit empty" id="digit2">_</div>
+        <div class="digit empty" id="digit3">_</div>
+        <div class="digit empty" id="digit4">_</div>
+        <div class="digit empty" id="digit5">_</div>
+      </div>
+      <div id="conversionInfo"></div>
+      <div id="message" class="message"></div>
+    </div>
+    
+    <div id="keypad" class="keypad"></div>
+    
+    <div class="buttons">
+      <button onclick="userLogin()">User Login</button>
+      <button onclick="adminLogin()" class="admin">Admin Login</button>
+      <button onclick="clearInput()" class="clear">Clear</button>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="showAdminMenu()">Admin Menu</button>
+    </div>
+    
+    <div id="adminMenu" class="admin-menu">
+      <h3>Admin Menu</h3>
+      <p>Enter admin code to access:</p>
+      <input type="text" id="adminMenuCode" class="admin-input" placeholder="Enter admin code" maxlength="5">
+      <div class="buttons">
+        <button onclick="verifyAdminForMenu()">Verify</button>
+        <button onclick="hideAdminMenu()" class="clear">Cancel</button>
+      </div>
+      
+      <div id="adminControls" style="display: none;">
+        <div style="margin-bottom: 15px;">
+          <input type="text" id="newUserCodeInput" class="admin-input" placeholder="New user code" maxlength="5">
+          <button onclick="changeUserCode()" style="width: 100%; margin-top: 5px;">Change User Code</button>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <input type="text" id="newAdminCodeInput" class="admin-input" placeholder="New admin code" maxlength="5">
+          <button onclick="changeAdminCode()" style="width: 100%; margin-top: 5px;">Change Admin Code</button>
+        </div>
+        
+        <div id="logContainer" class="log-container">
+          <div class="log-title">Failed Attempt Log</div>
+          <div id="logContent"></div>
+        </div>
+        
+        <button onclick="hideAdminMenu()" style="width: 100%; margin-top: 15px; background: #888;">Close Admin Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
